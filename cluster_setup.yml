@@ -1,0 +1,24 @@
+- hosts: localhost
+  vars_prompt:
+        - name: instance_count
+          private: no
+          prompt: "How many master do you want to launch ?\n"
+
+        - name: slave_ins_count
+          private: no
+          prompt: "How many slave do you want to launch ?\n"
+  roles:
+  - role: aws_instance_provision
+
+  tasks:
+    - meta: refresh_inventory
+      
+- hosts: tag_Name_k8s_master
+  roles:
+  - role: k8s_master
+
+- hosts: tag_Name_k8s_workers
+  roles:
+  - role: k8s-workers
+
+
