@@ -30,5 +30,5 @@ instance_name: k8s_master
 worker_instance: k8s_workers
 
 # credentials of user
-private_access_key: 
-secret_key: 
+private_access_key: AXXXXXXXXXXXXXXXXXXX
+secret_key: TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
