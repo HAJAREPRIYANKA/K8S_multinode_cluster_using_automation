@@ -30,6 +30,5 @@ instance_name: k8s_master
 worker_instance: k8s_workers
 
 # credentials of user
-private_access_key: AKIAZO4IJZPNDIKK6TFE
-secret_key: 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
-
+private_access_key: 
+secret_key: 
