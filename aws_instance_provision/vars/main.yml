@@ -1,0 +1,35 @@
+---
+# vars file for aws_instance_provision
+
+# required libraries
+libraries:
+  - boto
+  - boto3
+
+# region where instance to be launched on aws
+region_of_instance: us-east-1
+
+# Image ID of Image which is used to launch instance
+img_ID: ami-0742b4e673072066f
+
+# tpye of instance to lanuch instance
+aws_instance_type: t2.micro
+
+#Security group to connect  with instance
+security_group: launch-wizard-11
+
+#vpc subnet ID for instance
+subnet_ID: subnet-4349320e
+
+
+# used private key pair to do ssh into instance
+keypair_name: os_task
+
+instance_name: k8s_master
+
+worker_instance: k8s_workers
+
+# credentials of user
+private_access_key: AKIAZO4IJZPNDIKK6TFE
+secret_key: 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
+

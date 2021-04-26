@@ -1,0 +1,39 @@
+---
+# tasks file for aws_instance_provision
+
+
+- name: install
+  pip:
+          name: "{{ item }}"
+  loop: "{{ libraries }}"
+
+- name: "to launch a ec2_instance as master of k8s cluster"
+  ec2:
+    region: "{{ region_of_instance }}"
+    image: "{{ img_ID }}"
+    instance_type: "{{ aws_instance_type }}"
+    count: "{{ instance_count }}"
+    vpc_subnet_id: "{{ subnet_ID }}"
+    group: "{{ security_group }}"
+    key_name: "{{ keypair_name }}"
+    instance_tags:
+      Name: "{{ instance_name }}"
+    state: present
+    aws_access_key: "{{ private_access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+
+- name: "to launch a ec2_instance as slave of k8s cluster"
+  ec2:
+    region: "{{ region_of_instance }}"
+    image: "{{ img_ID }}"
+    instance_type: "{{ aws_instance_type }}"
+    count: "{{ slave_ins_count }}"
+    vpc_subnet_id: "{{ subnet_ID }}"
+    group: "{{ security_group }}"
+    key_name: "{{ keypair_name }}"
+    instance_tags:
+      Name: "{{ worker_instance }}"
+    state: present
+    aws_access_key: "{{ private_access_key }}"
+    aws_secret_key: "{{ secret_key }}"
+
